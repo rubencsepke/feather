@@ -1,17 +1,33 @@
 .formContainer {
     display: grid;
-    grid-template-columns: 82px auto;
+    grid-template-columns: 48px auto;
     text-align: left;
+    padding: 16px;
+    border-bottom: 1px solid #333333;
 
     .authorProfileImage {
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
     }
 
     .form {
-        textarea {
-            width: 100%;
-            height: 150px;
-            border-radius: 16px;
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 10px 100px;
+        align-items: center;
+        gap: 16px;
+        input {
+            border: 0;
+            background: transparent;
+            height: 20px;
+            font-size: 15px;
+            &:focus {
+                outline: none;
+            }  
+        }
+        .remainCharacters {
+            font-size: 15px;
         }
     }
 }

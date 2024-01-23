@@ -11,4 +11,18 @@ router.get('/posts', async (req, res, next) => {
   }
 })
 
+router.post('/posts', async (req, res, next) => {
+  const data = new Model({
+    content: req.body.content,
+    post_author: req.body.post_author
+  })
+  try {
+    const postedData = await data.save();
+    res.status(200).json(postedData);
+  } catch (error) {
+    res.status(400).json({message: error.message})
+  }
+})
+
+
 module.exports = router;

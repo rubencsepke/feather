@@ -1,17 +1,23 @@
 .container {
-    max-width: 600px;
+    max-width: 572px;
     width: 100%;
     text-align: left;
 
     .messageItem {
         display: grid;
-        grid-template-columns: 82px auto;
+        grid-template-columns: 48px auto;
         border-bottom: 1px solid #333333;
         padding: 16px;
         margin: 16px 0;
 
         .authorProfileImage {
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
+        }
+        .message p {
+            font-size: 15px;
+            margin: 0;
         }
     }
 }

@@ -1,11 +1,6 @@
 import styles from './message.component.module.scss';
 import { useQuery } from 'react-query';
 
-interface Post {
-  content: string,
-  post_author: number
-}
-
 async function fetchData() {
   const result = await fetch('http://localhost:3000/api/posts');
   if (!result.ok) {
@@ -32,7 +27,7 @@ function MessagesComponent() {
           <img className={styles.authorProfileImage} src="https://placehold.co/50x50" alt="Placeholder user image" />
           <div className={styles.authorContent}>
             <div className={styles.author}>
-              {item.post_author}
+              <strong>{item.post_author}</strong>
             </div>
             <div className={styles.message}>
               <p>{item.content}</p>
