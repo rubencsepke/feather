@@ -6,7 +6,7 @@
     .postItem {
         display: grid;
         grid-template-columns: 48px auto;
-        border-bottom: 1px solid #333333;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         padding: 16px;
         margin: 16px 0;
 
@@ -15,9 +15,34 @@
             height: 36px;
             border-radius: 50%;
         }
+
+        .author {
+            display: flex;
+            justify-content: space-between;
+
+            time {
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+
         .post p {
             font-size: 15px;
             margin: 0;
+        }
+
+        .actions {
+            margin-top: 8px;
+            display: flex;
+            gap: 12px;
+
+            .actionButton {
+                background: transparent;
+                border: 0;
+                font-size: 20px;
+                margin: 0;
+                padding: 0;
+                cursor: pointer;
+            }
         }
     }
 }

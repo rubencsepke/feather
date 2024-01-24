@@ -1,5 +1,7 @@
 import styles from './posts.component.module.scss';
 import {useGetPosts} from "../../hooks/usePosts.hook.ts";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 function PostsComponent() {
   const { posts } = useGetPosts();
@@ -12,9 +14,14 @@ function PostsComponent() {
           <div className={styles.authorContent}>
             <div className={styles.author}>
               <strong>{item.post_author}</strong>
+              <time>30m</time>
             </div>
             <div className={styles.post}>
               <p>{item.content}</p>
+            </div>
+            <div className={styles.actions}>
+              <button title="Like" className={styles.actionButton}><FontAwesomeIcon icon={icon({name: 'heart', style: 'regular'})} /></button>
+              <button title="Reply" className={styles.actionButton}><FontAwesomeIcon icon={icon({name: 'comment', style: 'regular'})} /></button>
             </div>
           </div>
         </div>

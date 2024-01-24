@@ -50,7 +50,7 @@ function FormComponent() {
           <form onSubmit={(e) => handleSubmit(e)} method="POST" className={styles.form}>
               <input type="text" name="content" value={content} onChange={(e) => handleChange(e.target.value)} placeholder='Start a thread...' />
               <span className={styles.remainCharacters}>{remain}</span>
-              <button type="submit">Post</button>
+              <button className={styles.submit} type="submit">Post</button>
           </form>
         </div>
     </div>
