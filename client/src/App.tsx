@@ -1,5 +1,5 @@
 import './App.css'
-import MessagesComponent from './components/messages/messages.component'
+import PostsComponent from './components/posts/posts.component'
 import FormComponent from './components/form/form.component'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <FormComponent />
-      <MessagesComponent />
+      <PostsComponent />
     </QueryClientProvider>
   )
 }
