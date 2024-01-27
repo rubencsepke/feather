@@ -1,7 +1,7 @@
 const Model = require('../model/post.model');
 module.exports.getPost = async (req, res) => {
     try {
-        const data = await Model.find();
+        const data = await Model.find().populate("post_author", "-password");
         res.json(data);
     } catch (error) {
         res.status(500).json({post: `getPost error: ${error.post}`})
@@ -9,9 +9,12 @@ module.exports.getPost = async (req, res) => {
 }
 
 module.exports.savePost = async (req, res) => {
+    const { content, post_author, likes, date } = req.body;
     const data = new Model({
-        content: req.body.content,
-        post_author: req.body.post_author
+        content,
+        post_author: post_author.username,
+        likes,
+        date
     })
     try {
         const postedData = await data.save();

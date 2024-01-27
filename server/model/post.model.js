@@ -6,7 +6,16 @@ const dataSchema = new mongoose.Schema({
         required: true
     },
     post_author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Users',
+        required: true,
+    },
+    likes: {
         type: Number,
+        required: true
+    },
+    date: {
+        type: Date,
         required: true
     }
 })
