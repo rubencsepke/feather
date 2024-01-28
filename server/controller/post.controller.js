@@ -1,7 +1,9 @@
 const Model = require('../model/post.model');
 module.exports.getPost = async (req, res) => {
     try {
-        const data = await Model.find().populate("post_author", "-password");
+        const data = await Model.find()
+            .populate("post_author", "-password")
+            .sort({"date": -1});
         res.json(data);
     } catch (error) {
         res.status(500).json({post: `getPost error: ${error.post}`})
