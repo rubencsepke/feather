@@ -11,7 +11,11 @@ export const defaultState: PostsState = {
     data: [
         {
             content: '',
-            post_author: 0
+            post_author: {
+                username: ''
+            },
+            likes: 0,
+            date: new Date('1999-12-31T23:00:00.000+00:00')
         }
     ],
     error: false

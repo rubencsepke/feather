@@ -18,7 +18,6 @@ async function postData(data: Post) {
   return result.json();
 }
 
-
 function FormComponent() {
   const [content, setContent] = useState<string>("");
   const [remain, setRemain] = useState<number>(20);
@@ -26,17 +25,22 @@ function FormComponent() {
   const handleChange = (text: string) => {
     const isMax = isMaxCharacters({text, maxCharacterLength: 20});
     setRemain(getRemainCharacters(text, 20));
-    if(isMax !== true) {
+    if(!isMax) {
       setContent(text);
     }
   }
 
   const handleSubmit = (event: Event) => {
     event.preventDefault();
+    const date: Date = new Date();
     if(event.currentTarget) {
-      const data = {
+      const data: Post = {
         content,
-        post_author: 1
+        post_author: {
+          username: "65b526edaeccb241b06b433c"
+        },
+        likes: 0,
+        date
       }
       postData(data);
       setContent("");
@@ -46,15 +50,15 @@ function FormComponent() {
   return (
     <div className={styles.formContainer}>
       <img className={styles.authorProfileImage} src="https://placehold.co/50x50" alt="Placeholder user image" />
-        <div className={styles.authorContent}>
-          <form onSubmit={(e) => handleSubmit(e)} method="POST" className={styles.form}>
-              <input type="text" name="content" value={content} onChange={(e) => handleChange(e.target.value)} placeholder='Start a thread...' />
-              <span className={styles.remainCharacters}>{remain}</span>
-              <button className={styles.submit} type="submit">Post</button>
-          </form>
-        </div>
+      <div className={styles.authorContent}>
+        <form onSubmit={(e) => handleSubmit(e)} method="POST" className={styles.form}>
+          <input type="text" name="content" value={content} onChange={(e) => handleChange(e.target.value)} placeholder='Start a thread...' />
+          <span className={styles.remainCharacters}>{remain}</span>
+          <button className={styles.submit} type="submit">Post</button>
+        </form>
+      </div>
     </div>
-  )
+    )
 }
 
 export default FormComponent

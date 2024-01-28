@@ -7,8 +7,7 @@ export const isMaxCharacters = ({text, maxCharacterLength}: isMaxCharactersProps
   return text.length >= maxCharacterLength;
 }
 
-export const getRemainCharacters = (text, maxCharacterLength: number): number => {
+export const getRemainCharacters = (text: string, maxCharacterLength: number): number => {
   const max = maxCharacterLength;
-  let number = max - (text.length);
-  return number;
+  return max - (text.length);
 }

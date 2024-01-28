@@ -21,6 +21,8 @@ export const useGetPosts = () => {
     }, []);
 
     return {
-        posts: state
+        posts: state.data,
+        error: state.error,
+        isLoading: state.isLoading
     }
 }
