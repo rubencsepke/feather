@@ -18,6 +18,7 @@ async function postData(data: Post) {
   return result.json();
 }
 
+
 function FormComponent() {
   const [content, setContent] = useState<string>("");
   const [remain, setRemain] = useState<number>(20);
@@ -25,22 +26,17 @@ function FormComponent() {
   const handleChange = (text: string) => {
     const isMax = isMaxCharacters({text, maxCharacterLength: 20});
     setRemain(getRemainCharacters(text, 20));
-    if(!isMax) {
+    if(isMax !== true) {
       setContent(text);
     }
   }
 
   const handleSubmit = (event: Event) => {
     event.preventDefault();
-    const date: Date = new Date();
     if(event.currentTarget) {
-      const data: Post = {
+      const data = {
         content,
-        post_author: {
-          username: "65b526edaeccb241b06b433c"
-        },
-        likes: 0,
-        date
+        post_author: 1
       }
       postData(data);
       setContent("");
