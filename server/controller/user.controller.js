@@ -2,8 +2,9 @@ const bcrypt = require('bcrypt');
 const Model = require('../model/user.model');
 
 module.exports.getUser = async (req, res) => {
+    const { username } = req.body;
     try {
-        const data = await Model.find({username: req.body.username});
+        const data = await Model.find({username});
         res.json(data);
     } catch (error) {
         res.status(500).json({post: `getPost error: ${error.post}`})
